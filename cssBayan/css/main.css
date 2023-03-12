@@ -1,0 +1,119 @@
+@import url('./reset.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+body {
+  background-color: rgb(239, 231, 220);
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+section {
+  border: 3px solid;
+  border-radius: 5px;
+}
+
+section > h1 {
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.bayan_item {
+  display: block;
+  min-width: 290px;
+  border-top: 3px solid rgb(0, 0, 0);
+  margin-top: 6px;
+  cursor: pointer;
+  position: relative;
+}
+
+.bayan_heading {
+  margin: 10px 0;
+  font-size: 17px;
+  font-weight: 700;
+  transition: all 0.4s ease;
+}
+
+.icon-close {
+  position: absolute;
+  top: 13px;
+  right: 0;
+  transform: rotate(90deg);
+  transition: all 0.4s ease;
+}
+
+.bayan-div_img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bayan_img {
+  width: 0;
+  transition: all 0.3s ease-out;
+}
+
+/* Open img and rotate icon */
+
+.bayan_toggle:checked ~ .bayan-div_img > .bayan_img {
+  width: 70vw;
+} 
+
+.bayan_toggle:checked ~ .icon-close {
+  transform: none;
+} 
+
+@media(min-width: 500px) {
+  section > h1 {
+    font-size: 40px;
+  }
+
+  .bayan_heading {
+    font-size: 23px;
+  }
+}
+
+@media(min-width: 1024px) {
+  section > h1 {
+    font-size: 45px;
+  }
+
+  .bayan_heading {
+    font-size: 25px;
+    color: rgb(115, 115, 224);
+  }
+
+  .icon-close {
+    opacity: 0;
+  }
+
+  /* Open icon and color heading */
+
+  .rsschool:hover > .bayan_item > .icon-close {
+    opacity: 1;
+  }
+
+  .rsschool:hover > .bayan_item > .bayan_heading {
+    color: #000;
+  }
+
+  /* Open and hover img */
+
+  .bayan_toggle:checked ~ .bayan-div_img > .bayan_img,
+  .bayan_item:hover > .bayan-div_img > .bayan_img {
+  width: 30vw;
+  }
+
+  /* Press mode */
+
+  .bayan_item:active > .bayan_heading,
+  .bayan_item:active > .bayan-div_img > .bayan_img,
+  .bayan_item:active > .icon-close {
+    opacity: 0.8;
+    color: rgb(115, 115, 224) !important;
+  }
+}
